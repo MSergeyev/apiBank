@@ -20,17 +20,6 @@ public class Controllers {
      BankService bankService;
 
 
-    @PostMapping("/test")
-    public ResponseEntity responseEntity(@RequestBody Customers customers) {
-        try {
-            return ResponseEntity.ok("Active");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Suspend");
-        }
-    }
-
-
-
     @GetMapping("/getBalance/{id}")
     public String getBalance(@PathVariable int id) {
         try {
