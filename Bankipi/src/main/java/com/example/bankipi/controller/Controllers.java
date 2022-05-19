@@ -1,23 +1,7 @@
-package com.example.bankipi.controller;
-
-
-import com.example.bankipi.model.Customers;
-
-import com.example.bankipi.service.BankService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.EntityNotFoundException;
-
-
-@RestController
-@RequestMapping("/api")
-public class Controllers {
+{
 
     @Autowired
-     BankService bankService;
+    BankService bankService;
 
 
     @GetMapping("/getBalance/{id}")
@@ -52,7 +36,7 @@ public class Controllers {
         }
         customers.setBalance(balance+PutMoney);
         bankService.createacc(customers);
-        return "Успешно";
+        return "Успешно добавлено " + balance;
     }
 
     @PutMapping("/takeMoney")
@@ -72,6 +56,6 @@ public class Controllers {
        }
        customers.setBalance(balance-TakeMoney);
        bankService.createacc(customers);
-       return "Успешно";
+       return "Успешно отнято " + balance;
    }
 }
